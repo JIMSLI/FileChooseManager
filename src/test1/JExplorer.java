@@ -27,6 +27,9 @@ public class JExplorer {
     */
     public static void main(String[] args) {
         // JFrame.setDefaultLookAndFeelDecorated(true);
+
+        System.out.print("132");
+
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().add(new UI(frame));
