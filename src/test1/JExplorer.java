@@ -17,14 +17,13 @@ import javax.swing.border.BevelBorder;
 * @author root
    * 
    */
+//156161651651
 public class JExplorer {
 
     public JExplorer() {
     }
 
-    /**
-    * @param args
-    */
+
     public static void main(String[] args) {
         // JFrame.setDefaultLookAndFeelDecorated(true);
         JFrame frame = new JFrame();
