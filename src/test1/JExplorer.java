@@ -3,9 +3,7 @@
 */
 package test1;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.Toolkit;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -78,10 +76,10 @@ class UI extends JPanel {
         //pane1.setDividerSize(4);
 
         JButton jbtChange = new JButton("转化成HTML文档");
-        JPanel panel2 = new JPanel();
+        JPanel panel2 = new JPanel(new FlowLayout(FlowLayout.LEFT));
         //jbtChange.setPreferredSize(new Dimension(ABOVE_WIDTH,ABOVE_HEIGHT));
         panel2.add(jbtChange);
-        panel2.setPreferredSize(new Dimension(ABOVE_WIDTH,ABOVE_HEIGHT));
+        panel2.setPreferredSize(new Dimension(ABOVE_WIDTH, ABOVE_HEIGHT));
         JSplitPane pane2 =    new JSplitPane(JSplitPane.VERTICAL_SPLIT, panel2,    pane1);
         pane2.setDividerLocation(40);
 
@@ -97,7 +95,7 @@ class UI extends JPanel {
     }
     class ButtonListener implements ActionListener{
         public  void actionPerformed(ActionEvent e){
-            System.out.println("123");
+            System.out.println("133");
             //int[] a = list.getSelectedIndices();
             //for(int o : a){System.out.print(o);}
            // System.out.print("\n");
