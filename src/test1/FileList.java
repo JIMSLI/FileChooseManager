@@ -36,7 +36,7 @@ public class FileList extends JList {
 }
 
 class FileListModel implements ListModel {
-    FileList theList;
+    //FileList theList;
     I_fileSystem node;
     char fileType = I_fileSystem.ALL;
     public void setNode(I_fileSystem node) {
@@ -69,7 +69,7 @@ class FileListModel implements ListModel {
 
 class MyCellRenderer extends JLabel implements ListCellRenderer {
     public MyCellRenderer() {
-        setOpaque(true);
+            setOpaque(true);
     }
 
     public Component getListCellRendererComponent(JList list,    Object value,    int index,    boolean isSelected,    boolean cellHasFocus) {

@@ -6,11 +6,10 @@ package test1;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JSplitPane;
+import javax.swing.*;
 import javax.swing.border.BevelBorder;
 
 /**
@@ -27,7 +26,7 @@ public class JExplorer {
     public static void main(String[] args) {
         // JFrame.setDefaultLookAndFeelDecorated(true);
 
-        System.out.print("132");
+        //System.out.print("132");
 
         JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -49,13 +48,15 @@ class UI extends JPanel {
     static int LEFT_WIDTH = 200;
     static int RIGHT_WIDTH = 300;
     static int WINDOW_HEIGHT = 300;
+    static int ABOVE_HEIGHT =  40;
+    static int ABOVE_WIDTH =  160;
     
     JFrame frame = null;
 
     public UI(JFrame frame) {
         // EmptyBorder eb = new EmptyBorder(1,1,1,1);
         this.frame = frame;
-        setPreferredSize(new Dimension(800, 600));
+        setPreferredSize(new Dimension(800, 630));
         setBorder(new BevelBorder(BevelBorder.LOWERED));
         setLayout(new BorderLayout());
 
@@ -70,12 +71,36 @@ class UI extends JPanel {
         JScrollPane listView = new JScrollPane(list);
         listView.setPreferredSize(new Dimension(RIGHT_WIDTH, WINDOW_HEIGHT));
 
-        JSplitPane pane =    new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, treeView,    listView);
+        JSplitPane pane1 =    new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, treeView,    listView);
 
-        pane.setDividerLocation(300);
-        pane.setDividerSize(4);
-        // pane.setDoubleBuffered(true);
 
-        add(pane);
+        pane1.setDividerLocation(300);
+        //pane1.setDividerSize(4);
+
+        JButton jbtChange = new JButton("转化成HTML文档");
+        JPanel panel2 = new JPanel();
+        //jbtChange.setPreferredSize(new Dimension(ABOVE_WIDTH,ABOVE_HEIGHT));
+        panel2.add(jbtChange);
+        panel2.setPreferredSize(new Dimension(ABOVE_WIDTH,ABOVE_HEIGHT));
+        JSplitPane pane2 =    new JSplitPane(JSplitPane.VERTICAL_SPLIT, panel2,    pane1);
+        pane2.setDividerLocation(40);
+
+        add(pane2);
+
+
+
+         ButtonListener listener = new ButtonListener();
+        jbtChange.addActionListener(listener);
+
+
+
+    }
+    class ButtonListener implements ActionListener{
+        public  void actionPerformed(ActionEvent e){
+            System.out.println("123");
+            //int[] a = list.getSelectedIndices();
+            //for(int o : a){System.out.print(o);}
+           // System.out.print("\n");
+        }
     }
 }
