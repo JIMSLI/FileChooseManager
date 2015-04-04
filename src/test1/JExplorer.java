@@ -85,20 +85,33 @@ class UI extends JPanel {
 
         add(pane2);
 
+        class ButtonListener implements ActionListener{
+            public FileList list;
+            public String Path;
+            //Object Node;
+            public ButtonListener(FileList list){this.list=list;}
+            public  void actionPerformed(ActionEvent e){
+                //System.out.println("133");
+               // Node = list.getSelectedValue();
+               // Path = Node.getFile().getPath();
+               // System.out.print(Node+"\n");
+                //int[] a ;
+                char a='1';
+                for(int i=0;i<=999;i++)
+                if(list.isSelectedIndex(i)){
+                    //a=list.dataModel.node;
 
+                Path = list.FilePath + "\\" + list.getModel().getElementAt(i);
+                System.out.print(i+"   "+Path+"\n");
+                }
+            }
+        }
 
-         ButtonListener listener = new ButtonListener();
+         ButtonListener listener = new ButtonListener(list);
         jbtChange.addActionListener(listener);
 
 
 
     }
-    class ButtonListener implements ActionListener{
-        public  void actionPerformed(ActionEvent e){
-            System.out.println("133");
-            //int[] a = list.getSelectedIndices();
-            //for(int o : a){System.out.print(o);}
-           // System.out.print("\n");
-        }
-    }
+
 }

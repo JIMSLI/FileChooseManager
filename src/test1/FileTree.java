@@ -16,6 +16,7 @@ import javax.swing.tree.DefaultTreeCellRenderer;
 import javax.swing.tree.TreeModel;
 import javax.swing.tree.TreePath;
 
+
 /**
 * @author root
    *
@@ -125,6 +126,7 @@ interface I_fileSystem {
     final public static char ALL = 'A';
 
     public Icon getIcon();
+    public String getFilePath();
     public I_fileSystem getChild(char fileType, int index);
     public int getChildCount(char fileType);
     public boolean isLeaf(char fileType);
@@ -150,6 +152,7 @@ class FolderNode implements I_fileSystem {
     private static FileSystemView fsView;
     private static boolean showHiden = true;;
     private File theFile;
+    private String theFilePath;
     private Vector<File> all = new Vector<File>();
     private Vector<File> folder = new Vector<File>();
     
@@ -163,6 +166,14 @@ class FolderNode implements I_fileSystem {
 
     public Icon getIcon() {
         return fsView.getSystemIcon(theFile);
+    }
+
+    public File getTheFile(){
+        return  theFile;
+    }
+
+    public  String getFilePath(){
+        return theFile.getPath();
     }
 
     public String toString() {
